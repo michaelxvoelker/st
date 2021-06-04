@@ -1,8 +1,10 @@
 dependencies:
   '@angular/animations': 12.0.0_@angular+core@12.0.0
+  '@angular/cdk': 12.0.2_ec0af7ebdb789ce2d2695f37a5414704
   '@angular/common': 12.0.0_@angular+core@12.0.0+rxjs@6.6.7
   '@angular/compiler': 12.0.0
   '@angular/core': 12.0.0_rxjs@6.6.7+zone.js@0.11.4
+  '@angular/flex-layout': 12.0.0-beta.34_0f70d159c24deeeee58be1fb2af26316
   '@angular/forms': 12.0.0_ec6f1dd00b5eff5e77cd16622d78872d
   '@angular/platform-browser': 12.0.0_d560c8b2e673011d8d48c1b58ea89c8b
   '@angular/platform-browser-dynamic': 12.0.0_e6080ad2ba5a711c6d1ab49fa8a3810c
@@ -26,6 +28,7 @@ devDependencies:
   '@nrwl/linter': 12.3.4
   '@nrwl/tao': 12.3.4
   '@nrwl/workspace': 12.3.4_prettier@2.2.1
+  '@schematics/angular': 12.0.2
   '@types/jest': 26.0.8
   '@types/node': 14.14.33
   '@typescript-eslint/eslint-plugin': 4.19.0_f2ad7386ef3401c53424c22cc09210d8
@@ -215,7 +218,6 @@ packages:
       magic-string: 0.25.7
       rxjs: 6.6.7
       source-map: 0.7.3
-    dev: false
     engines:
       node: ^12.14.1 || ^14.0.0
       npm: ^6.11.0 || ^7.5.6
@@ -239,7 +241,6 @@ packages:
       '@angular-devkit/core': 12.0.2
       ora: 5.4.0
       rxjs: 6.6.7
-    dev: false
     engines:
       node: ^12.14.1 || ^14.0.0
       npm: ^6.11.0 || ^7.5.6
@@ -298,6 +299,21 @@ packages:
       '@angular/core': 12.0.0
     resolution:
       integrity: sha512-BG/Ksk3863I7GKUem73Kty4UeU289oN+iPo/0O0x2dJCzNcpafML0GJpz4lg/RT9l6UddFviI4q9NiopR+eJfw==
+  /@angular/cdk/12.0.2_ec0af7ebdb789ce2d2695f37a5414704:
+    dependencies:
+      '@angular/common': 12.0.0_@angular+core@12.0.0+rxjs@6.6.7
+      '@angular/core': 12.0.0_rxjs@6.6.7+zone.js@0.11.4
+      rxjs: 6.6.7
+      tslib: 2.2.0
+    dev: false
+    optionalDependencies:
+      parse5: 5.1.1
+    peerDependencies:
+      '@angular/common': ^12.0.0 || ^13.0.0-0
+      '@angular/core': ^12.0.0 || ^13.0.0-0
+      rxjs: ^6.5.3
+    resolution:
+      integrity: sha512-1JGayyUJmwaul5YSEgb780aWxk+MLVG5FakVaxz5NtbPZx19ZyOuZqytCh5js11LsBDipF5/kirYhJPBFlMbWQ==
   /@angular/cli/12.0.0:
     dependencies:
       '@angular-devkit/architect': 0.1200.0
@@ -390,6 +406,23 @@ packages:
       zone.js: ~0.11.4
     resolution:
       integrity: sha512-fwXtF6qP8pr07+El/dg67RmgsI4Ubfi+E5YLjYKQ62gM8MzYyYGmLPakFzFnbzYrOr05zdprrbcVgGtMRHapMA==
+  /@angular/flex-layout/12.0.0-beta.34_0f70d159c24deeeee58be1fb2af26316:
+    dependencies:
+      '@angular/cdk': 12.0.2_ec0af7ebdb789ce2d2695f37a5414704
+      '@angular/common': 12.0.0_@angular+core@12.0.0+rxjs@6.6.7
+      '@angular/core': 12.0.0_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/platform-browser': 12.0.0_d560c8b2e673011d8d48c1b58ea89c8b
+      rxjs: 6.6.7
+      tslib: 2.2.0
+    dev: false
+    peerDependencies:
+      '@angular/cdk': ^12.0.0
+      '@angular/common': '>=12.0.0'
+      '@angular/core': '>=12.0.0'
+      '@angular/platform-browser': '>=12.0.0'
+      rxjs: ^6.0.0
+    resolution:
+      integrity: sha512-nLwKovXpyG+/U3Lbmfwt+q4ARupxtbPmFTZD0Y8oItFAV6/Oh9l+QQsNQa2VhOHAOrVagyDwcEM+SePtB5EmrQ==
   /@angular/forms/12.0.0_ec6f1dd00b5eff5e77cd16622d78872d:
     dependencies:
       '@angular/common': 12.0.0_@angular+core@12.0.0+rxjs@6.6.7
@@ -2822,7 +2855,6 @@ packages:
       '@angular-devkit/core': 12.0.2
       '@angular-devkit/schematics': 12.0.2
       jsonc-parser: 3.0.0
-    dev: false
     engines:
       node: ^12.14.1 || ^14.0.0
       npm: ^6.11.0 || ^7.5.6
@@ -9043,6 +9075,11 @@ packages:
     dev: true
     resolution:
       integrity: sha512-kXX+5S81lgESA0LsDuGjAlBybImAChYRMT+/uKCEXFBFOeEhS52qUCydGhU3qLRD8D9DVjaUo821WK7DM4iCeg==
+  /parse5/5.1.1:
+    dev: false
+    optional: true
+    resolution:
+      integrity: sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==
   /parse5/6.0.1:
     dev: true
     resolution:
@@ -12358,11 +12395,13 @@ specifiers:
   '@angular-eslint/eslint-plugin-template': ~12.0.0
   '@angular-eslint/template-parser': ~12.0.0
   '@angular/animations': 12.0.0
+  '@angular/cdk': ^12.0.2
   '@angular/cli': 12.0.0
   '@angular/common': 12.0.0
   '@angular/compiler': 12.0.0
   '@angular/compiler-cli': 12.0.0
   '@angular/core': 12.0.0
+  '@angular/flex-layout': ^12.0.0-beta.34
   '@angular/forms': 12.0.0
   '@angular/language-service': 12.0.0
   '@angular/platform-browser': 12.0.0
@@ -12376,6 +12415,7 @@ specifiers:
   '@nrwl/linter': 12.3.4
   '@nrwl/tao': 12.3.4
   '@nrwl/workspace': 12.3.4
+  '@schematics/angular': ^12.0.2
   '@types/jest': 26.0.8
   '@types/node': 14.14.33
   '@typescript-eslint/eslint-plugin': 4.19.0

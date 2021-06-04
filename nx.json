@@ -25,6 +25,9 @@
     "web-client-e2e": {
       "tags": [],
       "implicitDependencies": ["web-client"]
+    },
+    "ui": {
+      "tags": []
     }
   }
 }
