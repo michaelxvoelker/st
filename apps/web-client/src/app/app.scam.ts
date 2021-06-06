@@ -2,20 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 
-import { UiModule, WeekDay } from '@studysmarter/ui';
+import { UiModule } from '@studysmarter/ui';
 
 @Component({
   selector: 'studysmarter-root',
   template: `
     <div>
-      <studysmarter-week [currentDay]="currentDay"></studysmarter-week>
+      <studysmarter-week
+        [primaryDay]="currentDay"
+        [streakDays]="[5, 6]"
+      ></studysmarter-week>
     </div>
   `,
   styles: [],
 })
 export class AppComponent {
-  get currentDay(): WeekDay {
-    return new Date().toUTCString().slice(0, 2) as WeekDay;
+  get currentDay(): number {
+    return (new Date().getDay() + 6) % 7;
   }
 }
 

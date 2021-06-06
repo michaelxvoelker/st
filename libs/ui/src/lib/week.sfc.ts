@@ -16,7 +16,7 @@ export type WeekDay = 'Mo' | 'Tu' | 'We' | 'Th' | 'Fr' | 'Sa' | 'Su';
         @extend .circle;
         opacity: 0.5;
         border-width: 2px;
-        border-style: dotted;
+        border-style: dashed;
         border-color: #000;
       }
 
@@ -36,12 +36,13 @@ export type WeekDay = 'Mo' | 'Tu' | 'We' | 'Th' | 'Fr' | 'Sa' | 'Su';
   ],
   template: `
     <div fxLayout="row wrap" fxLayoutAlign="center " fxLayoutGap="15px">
-      <ng-container *ngFor="let day of weekDays">
+      <ng-container *ngFor="let day of days; let currentDay = index">
         <div
           fxLayoutAlign="center center"
           [ngClass]="{
-            'streak-day': isStreakDay(day) && !isCurrentToday(day),
-            'current-day': isCurrentToday(day)
+            'streak-day':
+              isStreakDay(currentDay) && !isCurrentToday(currentDay),
+            'current-day': isCurrentToday(currentDay)
           }"
           class="day"
         >
@@ -52,17 +53,21 @@ export type WeekDay = 'Mo' | 'Tu' | 'We' | 'Th' | 'Fr' | 'Sa' | 'Su';
   `,
 })
 export class WeekComponent {
-  weekDays: WeekDay[] = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+  @Input() primaryDay = 0;
 
-  @Input() currentDay: WeekDay = 'Mo';
+  @Input() streakDays: number[] = [];
 
-  @Input() streakDays: WeekDay[] = ['Mo'];
+  #weekDays: WeekDay[] = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 
-  isCurrentToday(day: WeekDay): boolean {
-    return this.currentDay === day;
+  get days(): WeekDay[] {
+    return this.#weekDays;
   }
 
-  isStreakDay(day: WeekDay): boolean {
+  isCurrentToday(day: number): boolean {
+    return this.primaryDay === day;
+  }
+
+  isStreakDay(day: number): boolean {
     return this.streakDays.includes(day);
   }
 }
